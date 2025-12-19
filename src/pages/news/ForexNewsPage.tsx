@@ -75,11 +75,51 @@ export default function ForexNewsPage() {
         }
     };
 
+    // 判断事件状态：upcoming (即将发生), past (已过期)
+    const getEventStatus = (isoString: string): 'upcoming' | 'soon' | 'past' => {
+        const eventTime = new Date(isoString).getTime();
+        const now = Date.now();
+        const hoursUntil = (eventTime - now) / (1000 * 60 * 60);
+
+        if (hoursUntil < 0) return 'past';
+        if (hoursUntil <= 24) return 'soon'; // 24小时内即将发生
+        return 'upcoming';
+    };
+
+    // 排序事件：即将发生的在前，已过期的在后
+    const sortedEvents = data?.redEvents
+        ? [...data.redEvents].sort((a, b) => {
+            const statusA = getEventStatus(a.date);
+            const statusB = getEventStatus(b.date);
+
+            // 优先级：soon > upcoming > past
+            const priority: Record<string, number> = { soon: 0, upcoming: 1, past: 2 };
+            if (priority[statusA] !== priority[statusB]) {
+                return priority[statusA] - priority[statusB];
+            }
+
+            // 同状态下按时间排序
+            return new Date(a.date).getTime() - new Date(b.date).getTime();
+        })
+        : [];
+
     // 样式辅助
     const getImpactColor = (impact: string) => {
         return impact === 'High'
             ? 'bg-red-100 text-red-800 border-red-200 dark:bg-red-900/30 dark:text-red-400 dark:border-red-800'
             : 'bg-gray-100 dark:bg-slate-700';
+    };
+
+    // 根据事件状态获取行样式
+    const getRowStyle = (isoString: string) => {
+        const status = getEventStatus(isoString);
+        if (status === 'soon') {
+            return 'bg-amber-50 dark:bg-amber-900/20 border-l-4 border-amber-500';
+        }
+        if (status === 'past') {
+            return 'opacity-50';
+        }
+        return '';
     };
 
     if (loading && !data) {
@@ -140,15 +180,15 @@ export default function ForexNewsPage() {
 
             {/* 事件列表 */}
             <div className="bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-slate-700 shadow-sm overflow-hidden">
-                {data?.redEvents.length === 0 ? (
+                {sortedEvents.length === 0 ? (
                     <div className="p-10 text-center text-gray-400 dark:text-gray-500">
                         <Filter className="h-10 w-10 mx-auto mb-2 opacity-50" />
                         <p>本周没有符合条件的红标事件</p>
                     </div>
                 ) : (
                     <div className="divide-y divide-gray-100 dark:divide-slate-700">
-                        {data?.redEvents.map((event, idx) => (
-                            <div key={idx} className="p-4 hover:bg-gray-50 dark:hover:bg-slate-700/50 transition flex items-center justify-between">
+                        {sortedEvents.map((event, idx) => (
+                            <div key={idx} className={`p-4 hover:bg-gray-50 dark:hover:bg-slate-700/50 transition flex items-center justify-between ${getRowStyle(event.date)}`}>
                                 <div className="flex items-center space-x-4">
                                     <div className="flex flex-col items-center w-14">
                                         <span className="text-xs font-bold text-gray-500 dark:text-gray-400">{event.country}</span>
@@ -160,6 +200,12 @@ export default function ForexNewsPage() {
                                         <h4 className="font-medium text-gray-900 dark:text-white">{event.title}</h4>
                                         <div className="flex items-center flex-wrap text-sm text-gray-500 dark:text-gray-400 mt-1 gap-x-3">
                                             <span className="flex items-center"><Clock className="h-3 w-3 mr-1" /> {formatTime(event.date)}</span>
+                                            {getEventStatus(event.date) === 'soon' && (
+                                                <span className="text-amber-600 dark:text-amber-400 font-medium">即将发布</span>
+                                            )}
+                                            {getEventStatus(event.date) === 'past' && (
+                                                <span className="text-gray-400 dark:text-gray-500">已发布</span>
+                                            )}
                                             {event.forecast && <span className="text-blue-600 dark:text-blue-400">预期: {event.forecast}</span>}
                                             {event.previous && <span>前值: {event.previous}</span>}
                                         </div>
