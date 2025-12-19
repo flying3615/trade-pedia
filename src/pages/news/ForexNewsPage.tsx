@@ -4,20 +4,32 @@ import { scanRedFolders, getCurrentCacheStatus } from '../../services/forexNewsS
 import type { FilteredEvents } from '../../types/forexNews';
 
 // 统计卡片组件
-function SummaryCard({ icon: Icon, label, count, colorClass }: {
+function SummaryCard({ icon: Icon, label, count, colorClass, isActive, onClick }: {
     icon: React.ElementType;
     label: string;
     count: number;
     colorClass: string;
+    isActive: boolean;
+    onClick: () => void;
 }) {
     return (
-        <div className="bg-white dark:bg-slate-800 p-4 rounded-lg border border-gray-100 dark:border-slate-700 shadow-sm flex items-center">
+        <div
+            onClick={onClick}
+            className={`cursor-pointer transition-all duration-200 bg-white dark:bg-slate-800 p-4 rounded-lg border shadow-sm flex items-center ${isActive
+                ? 'border-indigo-500 ring-2 ring-indigo-500/20 shadow-md ring-offset-2 dark:ring-offset-slate-900'
+                : 'border-gray-100 dark:border-slate-700 hover:border-gray-300 dark:hover:border-slate-500'
+                }`}
+        >
             <div className={`p-2 rounded-lg ${colorClass} mr-3`}>
                 <Icon className="h-5 w-5" />
             </div>
             <div>
-                <div className="text-xl font-bold text-gray-800 dark:text-white">{count}</div>
-                <div className="text-xs text-gray-500 dark:text-gray-400">{label}</div>
+                <div className={`text-xl font-bold ${isActive ? 'text-indigo-600 dark:text-indigo-400' : 'text-gray-800 dark:text-white'}`}>
+                    {count}
+                </div>
+                <div className={`text-xs ${isActive ? 'text-indigo-500 font-medium' : 'text-gray-500 dark:text-gray-400'}`}>
+                    {label}
+                </div>
             </div>
         </div>
     );
@@ -28,6 +40,7 @@ export default function ForexNewsPage() {
     const [error, setError] = useState<string | null>(null);
     const [data, setData] = useState<FilteredEvents | null>(null);
     const [cacheStatus, setCacheStatus] = useState({ isUsingCache: false, lastUpdate: new Date() });
+    const [selectedCurrency, setSelectedCurrency] = useState<string | null>(null);
 
     // 本地化设置
     const userTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
@@ -86,21 +99,23 @@ export default function ForexNewsPage() {
         return 'upcoming';
     };
 
-    // 排序事件：即将发生的在前，已过期的在后
+    // 筛选并排序事件
     const sortedEvents = data?.redEvents
-        ? [...data.redEvents].sort((a, b) => {
-            const statusA = getEventStatus(a.date);
-            const statusB = getEventStatus(b.date);
+        ? [...data.redEvents]
+            .filter(e => !selectedCurrency || e.country === selectedCurrency)
+            .sort((a, b) => {
+                const statusA = getEventStatus(a.date);
+                const statusB = getEventStatus(b.date);
 
-            // 优先级：soon > upcoming > past
-            const priority: Record<string, number> = { soon: 0, upcoming: 1, past: 2 };
-            if (priority[statusA] !== priority[statusB]) {
-                return priority[statusA] - priority[statusB];
-            }
+                // 优先级：soon > upcoming > past
+                const priority: Record<string, number> = { soon: 0, upcoming: 1, past: 2 };
+                if (priority[statusA] !== priority[statusB]) {
+                    return priority[statusA] - priority[statusB];
+                }
 
-            // 同状态下按时间排序
-            return new Date(a.date).getTime() - new Date(b.date).getTime();
-        })
+                // 同状态下按时间排序
+                return new Date(a.date).getTime() - new Date(b.date).getTime();
+            })
         : [];
 
     // 样式辅助
@@ -120,6 +135,10 @@ export default function ForexNewsPage() {
             return 'opacity-50';
         }
         return '';
+    };
+
+    const toggleCurrency = (currency: string) => {
+        setSelectedCurrency(prev => prev === currency ? null : currency);
     };
 
     if (loading && !data) {
@@ -171,10 +190,38 @@ export default function ForexNewsPage() {
             {/* 统计卡片 */}
             {data && (
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-                    <SummaryCard icon={DollarSign} label="USD 事件" count={data.summary.USD} colorClass="bg-blue-50 text-blue-500 dark:bg-blue-900/30 dark:text-blue-400" />
-                    <SummaryCard icon={TrendingUp} label="GBP 事件" count={data.summary.GBP} colorClass="bg-purple-50 text-purple-500 dark:bg-purple-900/30 dark:text-purple-400" />
-                    <SummaryCard icon={Calendar} label="EUR 事件" count={data.summary.EUR} colorClass="bg-green-50 text-green-500 dark:bg-green-900/30 dark:text-green-400" />
-                    <SummaryCard icon={Globe} label="JPY 事件" count={data.summary.JPY} colorClass="bg-orange-50 text-orange-500 dark:bg-orange-900/30 dark:text-orange-400" />
+                    <SummaryCard
+                        icon={DollarSign}
+                        label="USD 事件"
+                        count={data.summary.USD}
+                        colorClass="bg-blue-50 text-blue-500 dark:bg-blue-900/30 dark:text-blue-400"
+                        isActive={selectedCurrency === 'USD'}
+                        onClick={() => toggleCurrency('USD')}
+                    />
+                    <SummaryCard
+                        icon={TrendingUp}
+                        label="GBP 事件"
+                        count={data.summary.GBP}
+                        colorClass="bg-purple-50 text-purple-500 dark:bg-purple-900/30 dark:text-purple-400"
+                        isActive={selectedCurrency === 'GBP'}
+                        onClick={() => toggleCurrency('GBP')}
+                    />
+                    <SummaryCard
+                        icon={Calendar}
+                        label="EUR 事件"
+                        count={data.summary.EUR}
+                        colorClass="bg-green-50 text-green-500 dark:bg-green-900/30 dark:text-green-400"
+                        isActive={selectedCurrency === 'EUR'}
+                        onClick={() => toggleCurrency('EUR')}
+                    />
+                    <SummaryCard
+                        icon={Globe}
+                        label="JPY 事件"
+                        count={data.summary.JPY}
+                        colorClass="bg-orange-50 text-orange-500 dark:bg-orange-900/30 dark:text-orange-400"
+                        isActive={selectedCurrency === 'JPY'}
+                        onClick={() => toggleCurrency('JPY')}
+                    />
                 </div>
             )}
 
@@ -183,7 +230,15 @@ export default function ForexNewsPage() {
                 {sortedEvents.length === 0 ? (
                     <div className="p-10 text-center text-gray-400 dark:text-gray-500">
                         <Filter className="h-10 w-10 mx-auto mb-2 opacity-50" />
-                        <p>本周没有符合条件的红标事件</p>
+                        <p>{selectedCurrency ? `本周没有符合条件的 ${selectedCurrency} 事件` : '本周没有符合条件的红标事件'}</p>
+                        {selectedCurrency && (
+                            <button
+                                onClick={() => setSelectedCurrency(null)}
+                                className="mt-4 text-sm text-indigo-600 dark:text-indigo-400 font-semibold hover:underline"
+                            >
+                                清除筛选
+                            </button>
+                        )}
                     </div>
                 ) : (
                     <div className="divide-y divide-gray-100 dark:divide-slate-700">
