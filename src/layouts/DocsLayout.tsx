@@ -61,21 +61,21 @@ export function DocsLayout({ children, disableScroll = false }: DocsLayoutProps)
 
             {/* Mobile sidebar drawer */}
             <div
-                className={`fixed inset-y-0 left-0 z-40 w-72 transform transition-transform duration-300 ease-in-out md:hidden ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
+                className={`fixed inset-y-0 left-0 z-40 w-80 transform transition-transform duration-300 ease-in-out md:hidden ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
                     }`}
             >
-                <div className="pt-14 h-full">
+                <div className="pt-14 h-full overflow-y-auto overflow-x-hidden">
                     <Sidebar />
                 </div>
             </div>
 
             {/* Desktop sidebar */}
-            <div className="hidden md:fixed md:inset-y-0 md:flex md:w-72 md:flex-col">
+            <div className="hidden md:fixed md:inset-y-0 md:flex md:w-80 md:flex-col">
                 <Sidebar />
             </div>
 
             {/* Main content */}
-            <div className="flex flex-1 flex-col md:pl-72 h-full pt-14 md:pt-0">
+            <div className="flex flex-1 flex-col md:pl-80 h-full pt-14 md:pt-0">
                 <main className={`flex-1 focus:outline-none h-full ${disableScroll ? 'overflow-hidden' : 'overflow-y-auto'}`}>
                     <div className="h-full w-full">
                         {children}

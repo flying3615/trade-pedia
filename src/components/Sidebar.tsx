@@ -194,7 +194,7 @@ export function Sidebar() {
     const filteredNavigation = filterNavigation(navigation, searchQuery);
 
     return (
-        <div className="flex grow flex-col gap-y-5 overflow-y-auto border-r border-gray-200 bg-white px-6 pb-4 dark:border-gray-800 dark:bg-slate-950">
+        <div className="flex grow flex-col gap-y-5 border-r border-gray-200 bg-white px-6 pb-4 dark:border-gray-800 dark:bg-slate-950 h-full overflow-x-hidden">
             <div className="flex h-16 shrink-0 items-center gap-x-3">
                 <img src="/favicon.png" alt="Logo" className="h-8 w-8" />
                 <span className="text-xl font-bold tracking-tight text-slate-900 dark:text-white">
@@ -222,7 +222,7 @@ export function Sidebar() {
                 )}
             </div>
 
-            <nav className="flex flex-1 flex-col">
+            <nav className="flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
                 <ul role="list" className="flex flex-1 flex-col gap-y-7">
                     <li>
                         <ul role="list" className="-mx-2 space-y-1">
