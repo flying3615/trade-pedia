@@ -1905,7 +1905,7 @@ export const ictConcepts: ICTConcept[] = [
     {
         id: 'bsl-ssl',
         title: '买卖方流动性 (BSL/SSL)',
-        filename: 'ICT_LIQUIDITY_TRAP.png',
+        filename: 'ICT_PLACEHOLDER.png',
         description: 'ICT核心概念：理解市场流动性的本质与主力的流动性目标',
         category: 'neutral',
         keywords: ['BSL', 'SSL', '流动性', 'Buy Side Liquidity', 'Sell Side Liquidity', 'Liquidity Pool'],
@@ -2040,7 +2040,7 @@ export const ictConcepts: ICTConcept[] = [
     {
         id: 'eqh-eql',
         title: '等高点/等低点 (EQH/EQL)',
-        filename: 'ICT_LIQUIDITY_TRAP.png',
+        filename: 'ICT_PLACEHOLDER.png',
         description: 'ICT流动性目标：主力最喜欢猎杀的流动性密集区域',
         category: 'neutral',
         keywords: ['EQH', 'EQL', 'Equal Highs', 'Equal Lows', '等高点', '等低点', '流动性目标'],
@@ -2187,7 +2187,7 @@ export const ictConcepts: ICTConcept[] = [
     {
         id: 'smt-divergence',
         title: '聪明钱分歧 (SMT Divergence)',
-        filename: 'ICT_BIAS.png',
+        filename: 'ICT_PLACEHOLDER.png',
         description: 'ICT高级分析：通过相关资产对比判断主力真实意图',
         category: 'neutral',
         keywords: ['SMT', 'Smart Money Technique', '聪明钱分歧', 'Divergence', '相关性分析'],
@@ -2316,7 +2316,7 @@ export const ictConcepts: ICTConcept[] = [
     {
         id: 'kill-zones',
         title: '杀戮时段 (Kill Zones)',
-        filename: 'ICT_AMD.png',
+        filename: 'ICT_PLACEHOLDER.png',
         description: 'ICT时间分析：全球市场最活跃的交易时段与最佳入场时机',
         category: 'neutral',
         keywords: ['Kill Zones', '杀戮时段', 'London Open', 'New York Open', 'Asian Range'],
@@ -2453,7 +2453,7 @@ export const ictConcepts: ICTConcept[] = [
     {
         id: 'power-of-3',
         title: '三力量法则 (Power of 3)',
-        filename: 'ICT_AMD.png',
+        filename: 'ICT_PLACEHOLDER.png',
         description: 'ICT核心框架：累积-操纵-派发的日内完整交易周期',
         category: 'neutral',
         keywords: ['Power of 3', 'PO3', 'Accumulation', 'Manipulation', 'Distribution', 'AMD'],
@@ -2602,7 +2602,7 @@ export const ictConcepts: ICTConcept[] = [
     {
         id: 'silver-bullet',
         title: '银弹策略 (Silver Bullet)',
-        filename: 'ICT_AMD.png',
+        filename: 'ICT_PLACEHOLDER.png',
         description: 'ICT精准入场：特定时段内的高胜率FVG入场策略',
         category: 'neutral',
         keywords: ['Silver Bullet', '银弹', 'FVG', 'Kill Zone', '精准入场'],
@@ -2740,7 +2740,7 @@ export const ictConcepts: ICTConcept[] = [
     {
         id: 'judas-swing',
         title: '犹大摆动 (Judas Swing)',
-        filename: 'ICT_AMD.png',
+        filename: 'ICT_PLACEHOLDER.png',
         description: 'ICT经典陷阱：伦敦开盘时的假突破与流动性猎杀',
         category: 'neutral',
         keywords: ['Judas Swing', '犹大摆动', '假突破', 'London Open', '流动性猎杀'],
@@ -2882,7 +2882,7 @@ export const ictConcepts: ICTConcept[] = [
     {
         id: 'mitigation-block',
         title: '缓解区块 (Mitigation Block)',
-        filename: 'ICT_BULLISH_ORDER_BLOCK.png',
+        filename: 'ICT_PLACEHOLDER.png',
         description: 'ICT进阶概念：机构回补仓位的特殊价格区域',
         category: 'neutral',
         keywords: ['Mitigation Block', '缓解区块', 'MB', 'Position Repair', '仓位回补'],
@@ -3011,7 +3011,7 @@ export const ictConcepts: ICTConcept[] = [
     {
         id: 'rejection-block',
         title: '拒绝区块 (Rejection Block)',
-        filename: 'ICT_BULLISH_ORDER_BLOCK.png',
+        filename: 'ICT_PLACEHOLDER.png',
         description: 'ICT进阶概念：强烈拒绝的价格区域与反转信号',
         category: 'neutral',
         keywords: ['Rejection Block', '拒绝区块', 'RB', '反转信号', 'Wick'],
@@ -3129,7 +3129,7 @@ export const ictConcepts: ICTConcept[] = [
     {
         id: 'quarterly-shifts',
         title: '季度转换 (Quarterly Shifts)',
-        filename: 'ICT_BIAS.png',
+        filename: 'ICT_PLACEHOLDER.png',
         description: 'ICT长期时间框架：季度周期中的关键转折与趋势变化',
         category: 'neutral',
         keywords: ['Quarterly Shifts', '季度转换', 'Q1', 'Q2', 'Q3', 'Q4', '季节性'],
@@ -3258,7 +3258,7 @@ export const ictConcepts: ICTConcept[] = [
     {
         id: 'ict-2022-model',
         title: 'ICT 2022 交易模型',
-        filename: 'ICT_MMXM.png',
+        filename: 'ICT_PLACEHOLDER.png',
         description: 'ICT最新交易框架：整合流动性、时间与PD Array的完整系统',
         category: 'neutral',
         keywords: ['ICT 2022', '交易模型', 'Mentorship', '整合框架', '系统化交易'],
@@ -3395,5 +3395,395 @@ export const ictConcepts: ICTConcept[] = [
                 '• 每个步骤缺一不可\n' +
                 '• 系统化执行，减少情绪干扰'
         }
+    },
+    {
+        id: 'ifvg',
+        title: '反转FVG (Inversion FVG / IFVG)',
+        filename: 'ICT_PLACEHOLDER.png',
+        description: 'ICT高级概念：失效FVG转化为反向支撑阻力的角色转换',
+        category: 'neutral',
+        keywords: ['IFVG', 'Inversion FVG', '反转FVG', 'Role Reversal', 'FVG失效'],
+        explanation: {
+            overview: 'Inversion FVG（反转FVG / IFVG）是ICT体系中描述FVG失效后角色转换的高级概念。当价格穿透FVG后，原来的支撑变成阻力（或反之）。\n' +
+                '\n' +
+                'IFVG的定义：\n' +
+                '• 原本的FVG被价格完全穿透并收盘\n' +
+                '• FVG从此"失效"，但并非无用\n' +
+                '• 发生角色转换（Role Reversal）\n' +
+                '• 看涨FVG变成看跌阻力区\n' +
+                '• 看跌FVG变成看涨支撑区\n' +
+                '\n' +
+                'IFVG的本质：\n' +
+                '• 与Breaker概念类似\n' +
+                '• 代表市场力量的转变\n' +
+                '• 原来在此入场的人现在被套\n' +
+                '• 他们的止损变成了反向入场的机会\n' +
+                '\n' +
+                '两种IFVG类型：\n' +
+                '• Bullish → Bearish IFVG：看涨FVG被跌破，变成阻力\n' +
+                '• Bearish → Bullish IFVG：看跌FVG被涨破，变成支撑',
+            setup: 'IFVG识别方法：\n' +
+                '\n' +
+                '看跌IFVG形成（原看涨FVG失效）：\n' +
+                '• 存在一个看涨FVG\n' +
+                '• 价格向下穿透并收盘在FVG下方\n' +
+                '• 该FVG现在变成Bearish IFVG\n' +
+                '• 价格反弹时会在此遇阻\n' +
+                '\n' +
+                '看涨IFVG形成（原看跌FVG失效）：\n' +
+                '• 存在一个看跌FVG（SIBI）\n' +
+                '• 价格向上穿透并收盘在FVG上方\n' +
+                '• 该FVG现在变成Bullish IFVG\n' +
+                '• 价格回调时会在此获得支撑\n' +
+                '\n' +
+                'IFVG有效性判断：\n' +
+                '• 必须有明确的穿透和收盘\n' +
+                '• 穿透后最好有Displacement\n' +
+                '• 符合新的HTF Bias更可靠\n' +
+                '• 第一次回测效果最好',
+            entry: 'IFVG交易策略：\n' +
+                '\n' +
+                '策略一：IFVG反向入场\n' +
+                '• 识别FVG被穿透\n' +
+                '• 等待价格回测到原FVG区域\n' +
+                '• 在IFVG反向入场\n' +
+                '• 止损设在穿透后的极值点\n' +
+                '\n' +
+                '看跌IFVG入场（做空）：\n' +
+                '• 确认HTF看跌Bias\n' +
+                '• 看涨FVG被跌破\n' +
+                '• 等待价格反弹到原FVG区域\n' +
+                '• 在IFVG位置入场做空\n' +
+                '\n' +
+                '看涨IFVG入场（做多）：\n' +
+                '• 确认HTF看涨Bias\n' +
+                '• 看跌FVG被涨破\n' +
+                '• 等待价格回调到原FVG区域\n' +
+                '• 在IFVG位置入场做多\n' +
+                '\n' +
+                'IFVG入场checklist：\n' +
+                '• ✅ FVG已被明确穿透\n' +
+                '• ✅ 符合新的HTF Bias方向\n' +
+                '• ✅ 价格首次回测原FVG区域\n' +
+                '• ✅ 有入场确认信号（K线形态）',
+            exit: '出场策略：\n' +
+                '\n' +
+                '止盈目标：\n' +
+                '• 对面的流动性\n' +
+                '• 新趋势方向的关键位\n' +
+                '\n' +
+                '止损设置：\n' +
+                '• 标准止损：穿透后极值点外\n' +
+                '• 如果再次被穿透，IFVG失效\n' +
+                '\n' +
+                'IFVG失效条件：\n' +
+                '• 价格再次穿透IFVG\n' +
+                '• HTF Bias再次反转',
+            psychology: 'IFVG心理建设：\n' +
+                '\n' +
+                '理解角色转换：\n' +
+                '• 支撑变阻力是市场永恒的规律\n' +
+                '• IFVG是这个规律的具体表现\n' +
+                '• 原来的多头现在是卖盘来源\n' +
+                '\n' +
+                '正确使用IFVG：\n' +
+                '• IFVG必须配合新的Bias使用\n' +
+                '• 不要在Bias不清时使用IFVG\n' +
+                '• IFVG效力弱于新形成的FVG\n' +
+                '\n' +
+                '记住：\n' +
+                '• 失效不等于无用\n' +
+                '• 角色转换是交易的本质\n' +
+                '• IFVG是第二次机会',
+            examples: 'IFVG实战案例：\n' +
+                '\n' +
+                '案例一：看涨FVG变看跌IFVG\n' +
+                '• 背景：存在一个4H看涨FVG\n' +
+                '• 发生：价格暴力跌破该FVG并收盘\n' +
+                '• IFVG形成：原FVG现在是阻力\n' +
+                '• 操作：价格反弹到原FVG区域\n' +
+                '• 入场：在IFVG做空\n' +
+                '• 结果：价格遇阻后继续下跌\n' +
+                '\n' +
+                '案例二：IFVG + MSS汇合\n' +
+                '• 背景：价格跌破FVG同时形成MSS\n' +
+                '• 双重确认：MSS确认趋势转变\n' +
+                '• IFVG提供精确入场点\n' +
+                '• 结果：高胜率反向入场\n' +
+                '\n' +
+                'IFVG核心要点：\n' +
+                '• IFVG是失效FVG的角色转换\n' +
+                '• 支撑变阻力，阻力变支撑\n' +
+                '• 配合新Bias使用\n' +
+                '• 第一次回测效果最佳'
+        }
+    },
+    {
+        id: 'cisd',
+        title: '结构变化确认 (CISD)',
+        filename: 'ICT_PLACEHOLDER.png',
+        description: 'ICT核心确认：Change in State of Delivery，价格交付状态的转变',
+        category: 'neutral',
+        keywords: ['CISD', 'Change in State of Delivery', '结构变化', '状态转换', 'Confirmation'],
+        explanation: {
+            overview: 'CISD（Change in State of Delivery）是ICT体系中描述价格交付状态从一种转变为另一种的确认信号。\n' +
+                '\n' +
+                'CISD的定义：\n' +
+                '• 价格从"交付"状态转变的确认\n' +
+                '• 通常表现为K线收盘位置的重要变化\n' +
+                '• 确认趋势或结构发生根本性转变\n' +
+                '• 比单纯的突破更有确认意义\n' +
+                '\n' +
+                'CISD与MSS的关系：\n' +
+                '• MSS是市场结构的转换\n' +
+                '• CISD是交付状态的转换\n' +
+                '• 两者经常同时发生\n' +
+                '• CISD更强调收盘价的确认\n' +
+                '\n' +
+                'CISD的核心意义：\n' +
+                '• 收盘价确认 > 影线刺穿\n' +
+                '• CISD是真实的结构变化\n' +
+                '• 假突破不会形成CISD',
+            setup: 'CISD识别方法：\n' +
+                '\n' +
+                '看涨CISD识别：\n' +
+                '• 价格突破关键高点\n' +
+                '• K线收盘价在高点上方\n' +
+                '• 不是影线刺穿后收回\n' +
+                '• 确认看涨结构转变\n' +
+                '\n' +
+                '看跌CISD识别：\n' +
+                '• 价格跌破关键低点\n' +
+                '• K线收盘价在低点下方\n' +
+                '• 不是影线刺穿后收回\n' +
+                '• 确认看跌结构转变\n' +
+                '\n' +
+                'CISD有效性判断：\n' +
+                '• 收盘价是关键，不是影线\n' +
+                '• 突破后收盘确认 = CISD\n' +
+                '• 突破后收回 = SFP（非CISD）\n' +
+                '• 更高时间框架的CISD更可靠\n' +
+                '\n' +
+                'CISD vs SFP对比：\n' +
+                '• CISD：收盘在突破方向 → 趋势改变\n' +
+                '• SFP：收盘回到原区域 → 假突破',
+            entry: 'CISD交易策略：\n' +
+                '\n' +
+                '策略一：CISD确认后趋势跟随\n' +
+                '• 等待CISD形成（收盘确认）\n' +
+                '• 等待回调到PD Array\n' +
+                '• 在OB或FVG入场\n' +
+                '• 跟随新趋势方向\n' +
+                '\n' +
+                '策略二：CISD作为Bias确认\n' +
+                '• 用HTF的CISD确认Bias\n' +
+                '• 在LTF寻找入场机会\n' +
+                '• 只做符合CISD方向的交易\n' +
+                '\n' +
+                '看涨CISD后做多：\n' +
+                '• 确认CISD形成（收盘破高）\n' +
+                '• 等待价格回调\n' +
+                '• 在Bullish PD Array入场\n' +
+                '\n' +
+                '看跌CISD后做空：\n' +
+                '• 确认CISD形成（收盘破低）\n' +
+                '• 等待价格反弹\n' +
+                '• 在Bearish PD Array入场',
+            exit: '出场策略：\n' +
+                '\n' +
+                '止盈目标：\n' +
+                '• 新趋势方向的流动性\n' +
+                '• HTF关键支撑阻力位\n' +
+                '\n' +
+                '止损设置：\n' +
+                '• 在CISD形成的PD Array外\n' +
+                '• 如果出现反向CISD，止损出场\n' +
+                '\n' +
+                'CISD失效条件：\n' +
+                '• 出现反向CISD\n' +
+                '• 价格收盘回到原区域',
+            psychology: 'CISD心理建设：\n' +
+                '\n' +
+                '收盘价的重要性：\n' +
+                '• "Where candle closes matters"\n' +
+                '• 收盘价是确认，影线是噪音\n' +
+                '• CISD让你区分真假突破\n' +
+                '\n' +
+                '正确使用CISD：\n' +
+                '• 等待收盘确认再做决定\n' +
+                '• 不要被影线刺穿吓到\n' +
+                '• 收盘是真相，影线是诱惑\n' +
+                '\n' +
+                '记住：\n' +
+                '• 耐心等待收盘\n' +
+                '• CISD是真实的结构变化\n' +
+                '• 没有CISD就没有确认',
+            examples: 'CISD实战案例：\n' +
+                '\n' +
+                '案例一：CISD确认看涨转变\n' +
+                '• 背景：价格在下跌趋势中\n' +
+                '• 观察：一根K线突破前高\n' +
+                '• 关键：收盘价在前高上方\n' +
+                '• CISD确认：看涨结构确立\n' +
+                '• 操作：等待回调后做多\n' +
+                '\n' +
+                '案例二：CISD vs SFP对比\n' +
+                '• 场景A（CISD）：收盘在突破方向\n' +
+                '  - 结论：趋势改变，跟随新方向\n' +
+                '• 场景B（SFP）：收盘回到原区域\n' +
+                '  - 结论：假突破，反向入场\n' +
+                '\n' +
+                'CISD核心要点：\n' +
+                '• 收盘价确认是关键\n' +
+                '• CISD确认趋势真的改变了\n' +
+                '• 区分CISD和SFP是交易核心\n' +
+                '• 等待收盘，不要提前判断'
+        }
+    },
+    {
+        id: 'mss',
+        title: '市场结构转换 (MSS)',
+        filename: 'ICT_PLACEHOLDER.png',
+        description: 'ICT核心概念：Market Structure Shift，趋势反转的关键确认信号',
+        category: 'neutral',
+        keywords: ['MSS', 'Market Structure Shift', '市场结构转换', '趋势反转', 'BOS'],
+        explanation: {
+            overview: 'MSS（Market Structure Shift）是ICT体系中最核心的趋势反转确认信号。它标志着市场从一个趋势状态转变为另一个。\n' +
+                '\n' +
+                'MSS的定义：\n' +
+                '• 市场结构的根本性转变\n' +
+                '• 打破了之前的高点/低点序列\n' +
+                '• 伴随Displacement（暴力运动）\n' +
+                '• 确认趋势方向改变\n' +
+                '\n' +
+                'MSS vs BOS（Break of Structure）：\n' +
+                '• BOS：任何结构突破\n' +
+                '• MSS：伴随Displacement的结构突破\n' +
+                '• MSS更可靠，因为有暴力确认\n' +
+                '• 没有Displacement的BOS可能是假突破\n' +
+                '\n' +
+                'MSS的核心要素：\n' +
+                '• 结构突破：打破前高/前低\n' +
+                '• Displacement：暴力K线\n' +
+                '• FVG形成：突破时留下缺口\n' +
+                '• 三者结合才是完美MSS',
+            setup: 'MSS识别方法：\n' +
+                '\n' +
+                '看涨MSS识别：\n' +
+                '• 之前是下跌趋势（Lower Lows）\n' +
+                '• 出现暴力上涨K线\n' +
+                '• 突破最近的摆动高点\n' +
+                '• 收盘在高点上方\n' +
+                '• 留下看涨FVG\n' +
+                '• 确认看涨MSS形成\n' +
+                '\n' +
+                '看跌MSS识别：\n' +
+                '• 之前是上涨趋势（Higher Highs）\n' +
+                '• 出现暴力下跌K线\n' +
+                '• 跌破最近的摆动低点\n' +
+                '• 收盘在低点下方\n' +
+                '• 留下看跌FVG（SIBI）\n' +
+                '• 确认看跌MSS形成\n' +
+                '\n' +
+                'MSS有效性三要素：\n' +
+                '• ✅ 结构突破（打破前高/低）\n' +
+                '• ✅ Displacement（暴力K线）\n' +
+                '• ✅ FVG形成（缺口）\n' +
+                '缺一不可！',
+            entry: 'MSS交易策略：\n' +
+                '\n' +
+                '策略一：MSS后回调入场\n' +
+                '• 确认MSS形成\n' +
+                '• 等待价格回调\n' +
+                '• 在MSS形成时留下的FVG入场\n' +
+                '• 或在MSS前的最后OB入场\n' +
+                '\n' +
+                '看涨MSS入场流程：\n' +
+                '• 确认看涨MSS（突破前高+Displacement+FVG）\n' +
+                '• 等待价格回调\n' +
+                '• 在FVG或新形成的Breaker入场\n' +
+                '• 止损设在MSS形成点下方\n' +
+                '• 目标是上方流动性（BSL）\n' +
+                '\n' +
+                '看跌MSS入场流程：\n' +
+                '• 确认看跌MSS（跌破前低+Displacement+SIBI）\n' +
+                '• 等待价格反弹\n' +
+                '• 在SIBI或新形成的Breaker入场\n' +
+                '• 止损设在MSS形成点上方\n' +
+                '• 目标是下方流动性（SSL）\n' +
+                '\n' +
+                'MSS入场checklist：\n' +
+                '• ✅ MSS三要素完整\n' +
+                '• ✅ 符合HTF Bias\n' +
+                '• ✅ 等待回调入场\n' +
+                '• ✅ 有明确的PD Array\n' +
+                '• ✅ 目标是对面流动性',
+            exit: '出场策略：\n' +
+                '\n' +
+                '止盈目标：\n' +
+                '• 第一目标：MSS形成时的极值点\n' +
+                '• 第二目标：对面的流动性（BSL/SSL）\n' +
+                '• 最终目标：HTF流动性目标\n' +
+                '\n' +
+                '止损设置：\n' +
+                '• 标准止损：MSS形成前的极值点外\n' +
+                '• 做多止损：MSS前的Swing Low下方\n' +
+                '• 做空止损：MSS前的Swing High上方\n' +
+                '\n' +
+                'MSS失效条件：\n' +
+                '• 出现反向MSS\n' +
+                '• 价格返回突破前结构\n' +
+                '• 此时应止损并重新评估',
+            psychology: 'MSS心理建设：\n' +
+                '\n' +
+                'MSS是趋势反转的"盖章"：\n' +
+                '• MSS是主力宣告趋势改变\n' +
+                '• 没有MSS就没有确认\n' +
+                '• MSS后再入场，不要提前猜\n' +
+                '\n' +
+                '常见错误避免：\n' +
+                '• 不要在MSS前抄底摸顶\n' +
+                '• 不要把普通BOS当MSS\n' +
+                '• 没有Displacement不是MSS\n' +
+                '\n' +
+                '正确心态：\n' +
+                '• 耐心等待MSS确认\n' +
+                '• MSS后等待回调入场\n' +
+                '• 跟随MSS的方向交易\n' +
+                '\n' +
+                '记住：\n' +
+                '• MSS是趋势反转的证据\n' +
+                '• Displacement是关键\n' +
+                '• 没有暴力，就没有确认',
+            examples: 'MSS实战案例：\n' +
+                '\n' +
+                '案例一：完整看涨MSS流程\n' +
+                '• 背景：4H下跌趋势\n' +
+                '• 扫荡：价格扫了SSL（做空陷阱）\n' +
+                '• MSS形成：\n' +
+                '  - 巨大绿色K线出现\n' +
+                '  - 突破最近的Swing High\n' +
+                '  - 收盘在高点上方\n' +
+                '  - 留下看涨FVG\n' +
+                '• 入场：价格回调到FVG\n' +
+                '• 止损：MSS前的低点下方\n' +
+                '• 目标：上方BSL\n' +
+                '• 结果：趋势反转，价格上涨\n' +
+                '\n' +
+                '案例二：MSS vs 普通BOS对比\n' +
+                '• 普通BOS：磨磨唧唧突破，无FVG\n' +
+                '  - 可能是假突破\n' +
+                '  - 不足以确认趋势改变\n' +
+                '• 真正MSS：暴力突破 + FVG\n' +
+                '  - 确认趋势改变\n' +
+                '  - 提供可靠入场机会\n' +
+                '\n' +
+                'MSS核心要点：\n' +
+                '• MSS = 结构突破 + Displacement + FVG\n' +
+                '• 没有Displacement不是真MSS\n' +
+                '• MSS后等待回调再入场\n' +
+                '• MSS是趋势反转的官方确认'
+        }
     }
 ];
+
