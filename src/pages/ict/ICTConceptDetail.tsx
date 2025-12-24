@@ -101,6 +101,20 @@ export default function ICTConceptDetail() {
                                             return paragraphs.map((paragraph, index) => {
                                                 if (paragraph.trim() === '') return null;
 
+                                                // Inline Image [IMG:filename.png]
+                                                if (paragraph.startsWith('[IMG:') && paragraph.endsWith(']')) {
+                                                    const imageName = paragraph.slice(5, -1);
+                                                    return (
+                                                        <div key={`img-${index}`} className="my-6">
+                                                            <img
+                                                                src={`/images/ict/${imageName}`}
+                                                                alt={imageName}
+                                                                className="max-w-full rounded-lg shadow-md border border-slate-200 dark:border-slate-700"
+                                                            />
+                                                        </div>
+                                                    );
+                                                }
+
                                                 // Bullet points
                                                 if (paragraph.startsWith('•')) {
                                                     return (
