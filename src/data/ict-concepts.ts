@@ -4162,7 +4162,7 @@ export const ictConcepts: ICTConcept[] = [
             examples: 'MSS后趋势逆转 成功vs失败 案例对比：\n' +
                 '\n' +
                 '【成功案例图 - 趋势成功逆转】\n' +
-                '[IMG:ICT_FVG_FILL_SUCCESS.png]\n' +
+                '[IMG:ICT_FVG_FILL_FAIL.png]\n' +
                 '\n' +
                 '案例一：MSS后趋势成功从多转空\n' +
                 '• 背景：多头趋势运行中\n' +
@@ -4176,7 +4176,7 @@ export const ictConcepts: ICTConcept[] = [
                 '---\n' +
                 '\n' +
                 '【失败案例图 - 虽有MSS但逆转失败】\n' +
-                '[IMG:ICT_FVG_FILL_FAIL.png]\n' +
+                '[IMG:ICT_FVG_FILL_SUCCESS.png]\n' +
                 '\n' +
                 '案例二：虽有MSS但趋势继续原方向\n' +
                 '• 背景：多头趋势运行中\n' +

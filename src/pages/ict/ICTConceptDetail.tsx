@@ -33,30 +33,37 @@ export default function ICTConceptDetail() {
         { key: 'examples', title: '实例说明' }
     ];
 
+    // Check if content has inline images - if so, hide the standalone image panel
+    const hasInlineImages = Object.values(concept.explanation).some(
+        content => content.includes('[IMG:')
+    );
+
     return (
         <>
-            <div className="flex flex-col lg:flex-row h-full overflow-hidden bg-white dark:bg-slate-950">
-                {/* Left Column: Image (Sticky/Independent) */}
-                <div className="lg:w-[45%] h-64 lg:h-full bg-slate-100 dark:bg-slate-900 border-b lg:border-b-0 lg:border-r border-slate-200 dark:border-slate-800 flex items-center justify-center p-4 lg:p-8 relative">
-                    <div className="relative w-full h-full flex items-center justify-center group">
-                        <img
-                            src={`/images/ict/${concept.filename}`}
-                            alt={concept.title}
-                            className="max-w-full max-h-full object-contain shadow-sm rounded-lg cursor-pointer transition-transform hover:scale-[1.02]"
-                            onClick={() => setIsImageModalOpen(true)}
-                        />
-                        {/* Zoom hint overlay */}
-                        <div
-                            className="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/10 transition-colors cursor-pointer rounded-lg"
-                            onClick={() => setIsImageModalOpen(true)}
-                        >
-                            <div className="opacity-0 group-hover:opacity-100 transition-opacity bg-black/60 text-white px-3 py-2 rounded-lg flex items-center gap-2">
-                                <ZoomIn className="w-4 h-4" />
-                                <span className="text-sm">点击放大</span>
+            <div className={`flex flex-col ${hasInlineImages ? '' : 'lg:flex-row'} h-full overflow-hidden bg-white dark:bg-slate-950`}>
+                {/* Left Column: Image (Sticky/Independent) - Hidden when inline images exist */}
+                {!hasInlineImages && (
+                    <div className="lg:w-[45%] h-64 lg:h-full bg-slate-100 dark:bg-slate-900 border-b lg:border-b-0 lg:border-r border-slate-200 dark:border-slate-800 flex items-center justify-center p-4 lg:p-8 relative">
+                        <div className="relative w-full h-full flex items-center justify-center group">
+                            <img
+                                src={`/images/ict/${concept.filename}`}
+                                alt={concept.title}
+                                className="max-w-full max-h-full object-contain shadow-sm rounded-lg cursor-pointer transition-transform hover:scale-[1.02]"
+                                onClick={() => setIsImageModalOpen(true)}
+                            />
+                            {/* Zoom hint overlay */}
+                            <div
+                                className="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/10 transition-colors cursor-pointer rounded-lg"
+                                onClick={() => setIsImageModalOpen(true)}
+                            >
+                                <div className="opacity-0 group-hover:opacity-100 transition-opacity bg-black/60 text-white px-3 py-2 rounded-lg flex items-center gap-2">
+                                    <ZoomIn className="w-4 h-4" />
+                                    <span className="text-sm">点击放大</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                )}
 
                 {/* Right Column: Content (Scrollable) */}
                 <div className="flex-1 h-full overflow-y-auto bg-white dark:bg-slate-950">
