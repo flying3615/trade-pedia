@@ -31,6 +31,8 @@ import OptionStrategyDetailPage from './pages/options/OptionStrategyDetailPage.t
 import OptionsBasicsPage from './pages/options/OptionsBasicsPage.tsx';
 import ForexNewsPage from './pages/news/ForexNewsPage.tsx';
 import TrendLiquidityChecklist from './pages/checklist/TrendLiquidityChecklist.tsx';
+import CoachPromptPage from './pages/prompts/CoachPromptPage.tsx';
+import ChecklistPromptPage from './pages/prompts/ChecklistPromptPage.tsx';
 
 function App() {
   return (
@@ -54,6 +56,10 @@ function App() {
         {/* ICT Trading Routes */}
         <Route path="/ict" element={<DocsLayout><ICTPage /></DocsLayout>} />
         <Route path="/ict/:id" element={<DocsLayout disableScroll><ICTConceptDetail /></DocsLayout>} />
+
+        {/* AI Prompts Routes */}
+        <Route path="/prompts/coach" element={<DocsLayout><CoachPromptPage /></DocsLayout>} />
+        <Route path="/prompts/checklist" element={<DocsLayout><ChecklistPromptPage /></DocsLayout>} />
 
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

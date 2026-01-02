@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Home, Zap, TrendingUp, CircleDollarSign, ChevronRight, ChevronDown, Newspaper, Search, X, Crosshair } from 'lucide-react';
+import { Home, Zap, TrendingUp, CircleDollarSign, ChevronRight, ChevronDown, Newspaper, Search, X, Crosshair, Bot } from 'lucide-react';
 import { clsx } from 'clsx';
 import { strategies } from '../data/options/strategies';
 import { ictConcepts } from '../data/ict-concepts';
@@ -65,6 +65,14 @@ const navigation: NavigationItem[] = [
                 name: concept.title,
                 href: `/ict/${concept.id}`
             }))
+        ]
+    },
+    {
+        name: 'AI Prompts',
+        icon: Bot,
+        children: [
+            { name: 'Coach Prompt', href: '/prompts/coach' },
+            { name: 'Checklist Prompt', href: '/prompts/checklist' },
         ]
     },
     { name: 'Chart Patterns', href: '/patterns', icon: Zap },
