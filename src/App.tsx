@@ -1,17 +1,9 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { DocsLayout } from './layouts/DocsLayout.tsx';
 import { Home } from './pages/Home.tsx';
+import IntroPage from './pages/IntroPage.tsx';
 
 // Placeholder components for other pages
-function Intro() {
-  return (
-    <div className="prose dark:prose-invert max-w-none">
-      <h1>Introduction to Price Action</h1>
-      <p>Price action is the raw movement of price over time. It is the language of the market.</p>
-    </div>
-  );
-}
-
 function Basics() {
   return (
     <div className="prose dark:prose-invert max-w-none">
@@ -46,7 +38,7 @@ function App() {
       <Routes>
         <Route path="/" element={<DocsLayout><Home /></DocsLayout>} />
         <Route path="/news" element={<DocsLayout><ForexNewsPage /></DocsLayout>} />
-        <Route path="/intro" element={<DocsLayout><Intro /></DocsLayout>} />
+        <Route path="/intro" element={<DocsLayout><IntroPage /></DocsLayout>} />
         <Route path="/basics" element={<DocsLayout><Basics /></DocsLayout>} />
         <Route path="/patterns" element={<DocsLayout><Patterns /></DocsLayout>} />
         <Route path="/decision-tree" element={<DocsLayout><DecisionTreePage /></DocsLayout>} />
