@@ -14,18 +14,26 @@ interface ChecklistItemData {
 }
 
 const checklistItems: ChecklistItemData[] = [
-    // 第一阶段：宏观定调 (3项)
+    // 第一阶段：宏观定调 (4项)
+    {
+        id: 'd1_trend',
+        title: 'D1 趋势确认 (Daily Bias)',
+        description: '日线级别的整体方向确认，与 H4 方向一致时信号更强',
+        longCondition: 'D1 价格在关键均线上方，整体结构偏多',
+        shortCondition: 'D1 价格在关键均线下方，整体结构偏空',
+        warning: '如果 D1 和 H4 方向冲突，降低仓位或观望',
+    },
     {
         id: 'key_levels',
         title: '绘制战场地图 (Key Levels)',
         description: '在图表上标记出：PWH/PWL (上周高低), PDH/PDL (昨日高低)',
-        tip: '不需要标 Session 高低点，那个留给 M15 阶段去看',
+        tip: '这些是主要的流动性池，价格大概率会去触碰',
     },
     {
         id: 'trend',
-        title: '趋势方向判读 (Trend)',
-        longCondition: '价格在 EMA 20 上方 → 多头趋势',
-        shortCondition: '价格在 EMA 20 下方 → 空头趋势',
+        title: 'H4 趋势方向判读 (Trend)',
+        longCondition: 'H4 价格在 EMA 20 上方 → 多头趋势',
+        shortCondition: 'H4 价格在 EMA 20 下方 → 空头趋势',
     },
     {
         id: 'space_check',
@@ -33,7 +41,22 @@ const checklistItems: ChecklistItemData[] = [
         longCondition: '现价上方是否有 PWH 或 PDH 压制？\n• 距离很近 (< 20点) → 不操作 / 等突破\n• 距离较远 (> 50点) → 可以做，目标就是那个高点',
         shortCondition: '现价下方是否有 PWL 或 PDL 支撑？\n• 距离很近 (< 20点) → 不操作 / 等突破\n• 距离较远 (> 50点) → 可以做，目标就是那个低点',
     },
-    // 第二阶段：微观狩猎 (1项)
+    // 第二阶段：微观狩猎 (3项)
+    {
+        id: 'kill_zone',
+        title: 'Kill Zone 时间检查',
+        description: '当前是否处于高波动交易时段？',
+        tip: '伦敦开盘 15:00-18:00 NZT | 纽约开盘 22:00-01:00 NZT | 避开亚盘（波动小）',
+        warning: '非 Kill Zone 时段入场，假突破概率大增',
+    },
+    {
+        id: 'session_hl',
+        title: 'Session High/Low 标注',
+        description: '标记当前交易时段的高低点（亚盘/伦敦/纽约）',
+        longCondition: '做多时：关注亚盘低点是否被扫（诱空后反转）',
+        shortCondition: '做空时：关注亚盘高点是否被扫（诱多后反转）',
+        tip: '亚盘形成的区间往往是伦敦/纽约的猎物',
+    },
     {
         id: 'sweep',
         title: '等待「扫损」(The Sweep)',
@@ -41,7 +64,7 @@ const checklistItems: ChecklistItemData[] = [
         shortCondition: '等待 M15 价格突破一个短期的 Swing High (内部高点)',
         tip: '口诀：不做多，直到低点被扫；不做空，直到高点被扫',
     },
-    // 第三阶段：确认扳机 (2项)
+    // 第三阶段：确认扳机 (3项)
     {
         id: 'displacement',
         title: '寻找强力位移 (Displacement)',
@@ -55,11 +78,19 @@ const checklistItems: ChecklistItemData[] = [
         description: '这波位移是否打破了微观结构 (MSS)？是否留下了清晰可见的 FVG？',
         warning: '如果没有 FVG，说明机构没进场，放弃交易',
     },
+    {
+        id: 'order_block',
+        title: 'Order Block 确认 (OB)',
+        description: '位移起点是否存在有效的 Order Block？',
+        longCondition: '做多：位移前最后一根下跌 K 线的区域为 Bullish OB',
+        shortCondition: '做空：位移前最后一根上涨 K 线的区域为 Bearish OB',
+        tip: 'FVG + OB 重叠区域是最佳入场点',
+    },
     // 第四阶段：精准入场 (3项)
     {
         id: 'entry',
         title: '挂单入场 (The Retest)',
-        description: '在 FVG 区域（或 OTE 0.618-0.79）挂限价单',
+        description: '在 FVG 区域（或 OTE 0.618-0.79 / OB 区域）挂限价单',
         warning: '不要追单！耐心等它回来填补缺口',
     },
     {
@@ -212,10 +243,10 @@ export default function TrendLiquidityChecklist() {
     const progress = (checkedItems.size / checklistItems.length) * 100;
 
     const phases = [
-        { start: 0, end: 3, icon: <TrendingUp className="h-5 w-5 text-indigo-400" />, title: '第一阶段：宏观定调', subtitle: 'H4 Context & Key Levels', description: '大周期决定方向，不做逆势单。' },
-        { start: 3, end: 4, icon: <Search className="h-5 w-5 text-amber-400" />, title: '第二阶段：微观狩猎', subtitle: 'M15 Setup', description: '寻找内部流动性 (IRL) 作为燃料。' },
-        { start: 4, end: 6, icon: <Crosshair className="h-5 w-5 text-red-400" />, title: '第三阶段：确认扳机', subtitle: 'The Displacement', description: '解决「入场过早」和「逆势接刀」的核心滤网。' },
-        { start: 6, end: 9, icon: <CheckCircle2 className="h-5 w-5 text-green-400" />, title: '第四阶段：精准入场', subtitle: 'Execution', description: '扣动扳机。' },
+        { start: 0, end: 4, icon: <TrendingUp className="h-5 w-5 text-indigo-400" />, title: '第一阶段：宏观定调', subtitle: 'D1 + H4 Context & Key Levels', description: '大周期决定方向，不做逆势单。' },
+        { start: 4, end: 7, icon: <Search className="h-5 w-5 text-amber-400" />, title: '第二阶段：微观狩猎', subtitle: 'M15 Setup & Kill Zone', description: '寻找内部流动性 (IRL) 作为燃料，注意时间窗口。' },
+        { start: 7, end: 10, icon: <Crosshair className="h-5 w-5 text-red-400" />, title: '第三阶段：确认扳机', subtitle: 'Displacement & OB', description: '解决「入场过早」和「逆势接刀」的核心滤网。' },
+        { start: 10, end: 13, icon: <CheckCircle2 className="h-5 w-5 text-green-400" />, title: '第四阶段：精准入场', subtitle: 'Execution', description: '扣动扳机。' },
     ];
 
     return (

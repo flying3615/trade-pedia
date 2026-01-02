@@ -31,7 +31,7 @@ const strategyGroups = strategies.reduce((acc, s) => {
 }, {} as Record<string, NavigationItem[]>);
 
 const navigation: NavigationItem[] = [
-    { name: '📋 开仓 Checklist', href: '/checklist/trend-liquidity', icon: Crosshair },
+    { name: '开仓 Checklist', href: '/checklist/trend-liquidity', icon: Crosshair },
     { name: '要闻', href: '/news', icon: Newspaper },
     { name: 'Introduction', href: '/intro', icon: Home },
     {
