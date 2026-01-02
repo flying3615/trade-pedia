@@ -31,9 +31,19 @@ const strategyGroups = strategies.reduce((acc, s) => {
 }, {} as Record<string, NavigationItem[]>);
 
 const navigation: NavigationItem[] = [
+    { name: 'Introduction', href: '/intro', icon: Home },
     { name: '开仓 Checklist', href: '/checklist/trend-liquidity', icon: Crosshair },
     { name: '要闻', href: '/news', icon: Newspaper },
-    { name: 'Introduction', href: '/intro', icon: Home },
+    {
+        name: 'ICT 交易',
+        icon: TrendingUp,
+        children: [
+            ...ictConcepts.map(concept => ({
+                name: concept.title,
+                href: `/ict/${concept.id}`
+            }))
+        ]
+    },
     {
         name: 'Price Action',
         icon: Zap,
@@ -49,22 +59,12 @@ const navigation: NavigationItem[] = [
             {
                 name: '策略库',
                 children: [
-                    { name: '全部策略', href: '/options/strategies' }, // Main gallery link
+                    { name: '全部策略', href: '/options/strategies' },
                     { name: '看多策略', children: strategyGroups['看多'] },
                     { name: '看空策略', children: strategyGroups['看空'] },
                     { name: '中性策略', children: strategyGroups['中性'] },
                 ]
             },
-        ]
-    },
-    {
-        name: 'ICT 交易',
-        icon: TrendingUp,
-        children: [
-            ...ictConcepts.map(concept => ({
-                name: concept.title,
-                href: `/ict/${concept.id}`
-            }))
         ]
     },
     {
@@ -75,7 +75,6 @@ const navigation: NavigationItem[] = [
             { name: 'Checklist Prompt', href: '/prompts/checklist' },
         ]
     },
-    { name: 'Chart Patterns', href: '/patterns', icon: Zap },
 ];
 
 function SidebarItem({ item, level = 0, forceOpen = false }: { item: NavigationItem; level?: number; forceOpen?: boolean }) {
