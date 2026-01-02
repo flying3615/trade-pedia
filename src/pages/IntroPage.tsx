@@ -9,7 +9,8 @@ import {
     Shield,
     Zap,
     BookOpen,
-    ChevronRight
+    ChevronRight,
+    Bot
 } from 'lucide-react';
 
 interface FeatureCardProps {
@@ -144,6 +145,13 @@ export default function IntroPage() {
                         description="可视化的交易决策流程图，帮助你在复杂的市场情况下做出结构化的交易决策。"
                         href="/decision-tree"
                         gradient="bg-gradient-to-br from-amber-600 to-yellow-600"
+                    />
+                    <FeatureCard
+                        icon={<Bot className="h-6 w-6 text-white" />}
+                        title="AI Prompts"
+                        description="专业的交易 AI 提示词，包含交易教练和 Checklist 验证助手，上传图表即可获得分析和点位建议。"
+                        href="/prompts/coach"
+                        gradient="bg-gradient-to-br from-violet-600 to-fuchsia-600"
                     />
                 </div>
             </div>
