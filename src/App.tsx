@@ -38,6 +38,7 @@ import OptionsStrategiesPage from './pages/options/OptionsStrategiesPage.tsx';
 import OptionStrategyDetailPage from './pages/options/OptionStrategyDetailPage.tsx';
 import OptionsBasicsPage from './pages/options/OptionsBasicsPage.tsx';
 import ForexNewsPage from './pages/news/ForexNewsPage.tsx';
+import TrendLiquidityChecklist from './pages/checklist/TrendLiquidityChecklist.tsx';
 
 function App() {
   return (
@@ -54,6 +55,9 @@ function App() {
         <Route path="/options/basics" element={<DocsLayout><OptionsBasicsPage /></DocsLayout>} />
         <Route path="/options/strategies" element={<DocsLayout><OptionsStrategiesPage /></DocsLayout>} />
         <Route path="/options/strategies/:id" element={<DocsLayout disableScroll><OptionStrategyDetailPage /></DocsLayout>} />
+
+        {/* Checklist Routes */}
+        <Route path="/checklist/trend-liquidity" element={<DocsLayout><TrendLiquidityChecklist /></DocsLayout>} />
 
         {/* ICT Trading Routes */}
         <Route path="/ict" element={<DocsLayout><ICTPage /></DocsLayout>} />

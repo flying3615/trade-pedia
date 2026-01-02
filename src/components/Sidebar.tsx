@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Home, Zap, TrendingUp, CircleDollarSign, ChevronRight, ChevronDown, Newspaper, Search, X } from 'lucide-react';
+import { Home, Zap, TrendingUp, CircleDollarSign, ChevronRight, ChevronDown, Newspaper, Search, X, Crosshair } from 'lucide-react';
 import { clsx } from 'clsx';
 import { strategies } from '../data/options/strategies';
 import { ictConcepts } from '../data/ict-concepts';
@@ -31,6 +31,7 @@ const strategyGroups = strategies.reduce((acc, s) => {
 }, {} as Record<string, NavigationItem[]>);
 
 const navigation: NavigationItem[] = [
+    { name: '📋 开仓 Checklist', href: '/checklist/trend-liquidity', icon: Crosshair },
     { name: '要闻', href: '/news', icon: Newspaper },
     { name: 'Introduction', href: '/intro', icon: Home },
     {
